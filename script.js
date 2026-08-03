@@ -1,3 +1,27 @@
+// --- Fitur Port Checker Simulator ---
+function cekPort() {
+    let port = prompt("Masukkan nomor port yang ingin dicek (contoh: 80, 443, 22, 3306):");
+    if (!port) return;
+    let status = "Tertutup (Closed / Filtered)";
+    let info = "Port tidak aktif atau diblokir firewall.";
+    
+    let p = port.trim();
+    if (p === "80") {
+        status = "Aktif (Open)";
+        info = "HTTP - Layanan Web Standar";
+    } else if (p === "443") {
+        status = "Aktif (Open)";
+        info = "HTTPS - Layanan Web Secure";
+    } else if (p === "22") {
+        status = "Aktif (Open)";
+        info = "SSH - Secure Shell Remote Access";
+    } else if (p === "3306") {
+        status = "Aktif (Open)";
+        info = "MySQL Database Port";
+    }
+    
+    alert("Hasil Pengecekan Port " + p + ":\n- Status: " + status + "\n- Deskripsi: " + info);
+}
 // --- Fitur MAC Vendor OUI Lookup Sederhana ---
 function macLookup() {
     let mac = prompt("Masukkan 3 digit awal MAC Address (contoh: 00:0c:29 atau b4:fb:e4):");
