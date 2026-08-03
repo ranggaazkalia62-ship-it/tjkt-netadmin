@@ -1,3 +1,51 @@
+// --- Fitur Dark/Light Mode Toggle ---
+function toggleTheme() {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+
+// Otomatis terapkan tema terakhir saat halaman dibuka
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+    }
+});
+
+// --- Fitur Fungsional: IP Subnet Calculator Sederhana ---
+function hitungSubnet() {
+    let cidr = prompt("Masukkan CIDR Prefix (contoh ketik: 24, 25, 26, 27, atau 28):");
+    if (!cidr) return;
+    
+    let mask, totalHost;
+    switch (cidr.trim()) {
+        case "24":
+            mask = "255.255.255.0";
+            totalHost = "254 Host";
+            break;
+        case "25":
+            mask = "255.255.255.128";
+            totalHost = "126 Host";
+            break;
+        case "26":
+            mask = "255.255.255.192";
+            totalHost = "62 Host";
+            break;
+        case "27":
+            mask = "255.255.255.224";
+            totalHost = "30 Host";
+            break;
+        case "28":
+            mask = "255.255.255.240";
+            totalHost = "14 Host";
+            break;
+        default:
+            mask = "Subnet Custom /" + cidr;
+            totalHost = "Cek kalkulasi standar";
+    }
+    
+    alert("Hasil Kalkulasi Subnet (/" + cidr + "):\n- Subnet Mask: " + mask + "\n- Total Host Usable: " + totalHost);
+}
 // --- 1. Fitur Pencarian & Local Storage ---
 const searchInput = document.querySelector('input[type="text"]');
 const toolCards = document.querySelectorAll('.card'); // Pastikan kelas kartu tool di HTML kamu menggunakan .card atau sesuaikan

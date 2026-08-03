@@ -1,3 +1,18 @@
+/* Styling Tambahan untuk Mode Terang (Light Mode) */
+body.light-mode {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    color: #1e3c72;
+}
+
+body.light-mode .container {
+    background: rgba(255, 255, 255, 0.75);
+    color: #1e3c72;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode h1, body.light-mode h3 {
+    color: #1e3c72;
+}
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #1e3c72, #2a5298);
