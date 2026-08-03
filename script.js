@@ -1,3 +1,7 @@
+function sapaPengguna() {
+    const teks = document.getElementById("pesan");
+    teks.innerHTML = "Asyik! Website kamu sekarang sudah interaktif dan keren! 🚀";
+}
 const App = {
     currentCategory: 'All',
     searchQuery: '',
