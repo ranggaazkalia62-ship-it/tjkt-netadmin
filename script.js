@@ -1,3 +1,40 @@
+// --- Fitur MAC Vendor OUI Lookup Sederhana ---
+function macLookup() {
+    let mac = prompt("Masukkan 3 digit awal MAC Address (contoh: 00:0c:29 atau b4:fb:e4):");
+    if (!mac) return;
+    
+    let cleanMac = mac.toLowerCase().trim();
+    let vendor = "Vendor tidak dikenal / Perangkat Umum";
+    
+    if (cleanMac.startsWith("00:0c:29") || cleanMac.startsWith("00:50:56")) {
+        vendor = "VMware, Inc.";
+    } else if (cleanMac.startsWith("b4:fb:e4") || cleanMac.startsWith("e4:8d:8c")) {
+        vendor = "MikroTikls SIA";
+    } else if (cleanMac.startsWith("00:1b:21") || cleanMac.startsWith("00:26:cb")) {
+        vendor = "Cisco Systems, Inc.";
+    } else if (cleanMac.startsWith("50:c7:bf") || cleanMac.startsWith("1c:3b:f3")) {
+        vendor = "TP-Link Corporation";
+    }
+    
+    alert("Hasil Pelacakan MAC (" + mac + "):\nPerusahaan / Vendor: " + vendor);
+}
+
+// --- Fitur Bandwidth & Download Timer ---
+function hitungDownload() {
+    let ukuranMB = prompt("Masukkan ukuran file (dalam MegaBytes / MB):");
+    let kecepatanMbps = prompt("Masukkan kecepatan internet (dalam Mbps):");
+    
+    if (!ukuranMB || !kecepatanMbps) return;
+    
+    // 1 Byte = 8 bits. Kecepatan Mbps dibagi 8 jadi MB/s
+    let kecepatanMBs = parseFloat(kecepatanMbps) / 8;
+    let totalDetik = parseFloat(ukuranMB) / kecepatanMBs;
+    
+    let menit = Math.floor(totalDetik / 60);
+    let detik = Math.round(totalDetik % 60);
+    
+    alert("Estimasi Waktu Unduh:\n- Ukuran: " + ukuranMB + " MB\n- Kecepatan: " + kecepatanMbps + " Mbps\n- Waktu: " + menit + " menit " + detik + " detik");
+}
 // --- Fitur Dark/Light Mode Toggle ---
 function toggleTheme() {
     document.body.classList.toggle('light-mode');
