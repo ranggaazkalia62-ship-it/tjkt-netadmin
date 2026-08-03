@@ -1,3 +1,58 @@
+// --- 1. Fitur Pencarian & Local Storage ---
+const searchInput = document.querySelector('input[type="text"]');
+const toolCards = document.querySelectorAll('.card'); // Pastikan kelas kartu tool di HTML kamu menggunakan .card atau sesuaikan
+
+if (searchInput) {
+    // Ambil riwayat pencarian terakhir dari Local Storage
+    const lastSearch = localStorage.getItem('lastSearch');
+    if (lastSearch) {
+        searchInput.value = lastSearch;
+        filterTools(lastSearch);
+    }
+
+    // Jalankan pencarian saat mengetik & simpan ke Local Storage
+    searchInput.addEventListener('input', (e) => {
+        const keyword = e.target.value.toLowerCase();
+        localStorage.setItem('lastSearch', keyword);
+        filterTools(keyword);
+    });
+}
+
+function filterTools(keyword) {
+    toolCards.forEach(card => {
+        const title = card.innerText.toLowerCase();
+        if (title.includes(keyword)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// --- 2. Fitur Fungsional: Base64 Encoder / Decoder ---
+function bukaBase64Tool() {
+    let pilihan = prompt("Pilih mode:\n1. Encode (Ubah ke Base64)\n2. Decode (Ubah dari Base64)\n(Ketik angka 1 atau 2)");
+    
+    if (pilihan === "1") {
+        let teks = prompt("Masukkan teks yang mau di-encode:");
+        if (teks) {
+            let hasil = btoa(teks);
+            alert("Hasil Encode:\n" + hasil);
+            localStorage.setItem('lastBase64Result', hasil);
+        }
+    } else if (pilihan === "2") {
+        let teks = prompt("Masukkan kode Base64 yang mau di-decode:");
+        if (teks) {
+            try {
+                let hasil = atob(teks);
+                alert("Hasil Decode:\n" + hasil);
+                localStorage.setItem('lastBase64Result', hasil);
+            } catch (e) {
+                alert("Format Base64 tidak valid!");
+            }
+        }
+    }
+}
 function sapaPengguna() {
     const teks = document.getElementById("pesan");
     teks.innerHTML = "Asyik! Website kamu sekarang sudah interaktif dan keren! 🚀";

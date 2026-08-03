@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Praktikum TJKT</title>
+    <link rel="stylesheet" href="gaya.css">
+</head>
+<body>
+    <div class="container" style="max-width: 500px; text-align: left; margin: 30px auto;">
+        <h1>📚 Panduan Praktikum Jaringan</h1>
+        <p>Catatan cepat konfigurasi perangkat jaringan:</p>
+        
+        <h3>1. Perintah Dasar MikroTik</h3>
+        <p style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px; font-family: monospace; font-size: 14px;">
+            /ip address add address=192.168.1.1/24 interface=ether1<br>
+            /ip dhcp-client add interface=ether2 disabled=no
+        </p>
+
+        <h3>2. Konfigurasi VLAN Cisco</h3>
+        <p style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px; font-family: monospace; font-size: 14px;">
+            enable<br>
+            configure terminal<br>
+            vlan 10<br>
+            name LAB-TJKT
+        </p>
+        
+        <br>
+        <a href="indeks.html" style="color: #00ff88; font-weight: bold; text-decoration: none;">← Kembali ke Dashboard Utama</a>
+    </div>
+</body>
+</html>
+
